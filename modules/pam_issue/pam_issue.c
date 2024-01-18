@@ -29,7 +29,11 @@
 #include <syslog.h>
 
 #ifdef USE_LOGIND
+#ifdef USE_ELOGIND
+#include <elogind/sd-login.h>
+#else
 #include <systemd/sd-login.h>
+#endif
 #else
 #include <utmp.h>
 #endif
